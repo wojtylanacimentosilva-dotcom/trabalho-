@@ -1,20 +1,24 @@
 using UnityEngine;
 
-public class espinho : MonoBehaviour
+public class Espinho : MonoBehaviour
 {
-    public Vector3 respawnPosition = new Vector3(-14f, 2f, 4f);
-
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Cube")
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collision.transform.position = respawnPosition;
+            cubodeouro player = collision.gameObject.GetComponent<cubodeouro>();
 
-            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-
-            if (rb != null)
+            if (player != null)
             {
-                rb.linearVelocity = Vector3.zero;
+                // Teleporta pro último checkpoint salvo
+                player.transform.position = player.respawnPosition;
+
+                // Reseta velocidade
+                Rigidbody rb = player.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.linearVelocity = Vector3.zero;
+                }
             }
         }
     }
