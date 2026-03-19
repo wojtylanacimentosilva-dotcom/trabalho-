@@ -584,11 +584,11 @@ Transform:
   m_GameObject: {fileID: 987709887}
   serializedVersion: 2
   m_LocalRotation: {x: -0.005999973, y: -0.0011998239, z: -0.000007390895, w: 0.99998134}
-  m_LocalPosition: {x: 5.1129055, y: 18.590216, z: -24.04784}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.25, y: 0.06, z: -7.59}
+  m_LocalScale: {x: 0.5, y: 0.250018, z: 0.499928}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1398792924}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1095223232
 GameObject:
@@ -809,7 +809,8 @@ GameObject:
   - component: {fileID: 1326664845}
   - component: {fileID: 1326664844}
   - component: {fileID: 1326664843}
-  - component: {fileID: 1326664842}
+  - component: {fileID: 1326664848}
+  - component: {fileID: 1326664847}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -817,21 +818,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1326664842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326664841}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 337138b6235e9514f889250ad279445b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::cubodeouro
-  gravityMultiplier: 3
-  jumpForce: 5
-  moveSpeed: 0.05
 --- !u!65 &1326664843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -925,6 +911,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1326664847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326664841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733d653f4d9367a41ae32b279a415a1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::parede
+--- !u!114 &1326664848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326664841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975a0ed35f0a85943b820cfcda8360af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::chao
 --- !u!1 &1398792919
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,8 +949,9 @@ GameObject:
   - component: {fileID: 1398792921}
   - component: {fileID: 1398792920}
   - component: {fileID: 1398792925}
+  - component: {fileID: 1398792926}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: personagem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -961,6 +972,12 @@ MonoBehaviour:
   gravityMultiplier: 3
   jumpForce: 5
   moveSpeed: 0.05
+  runSpeed: 9
+  jumpCooldown: 2
+  runDuration: 4
+  runCooldown: 2
+  respawnPosition: {x: -14, y: 2, z: 4}
+  flySpeed: 6
 --- !u!65 &1398792921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1051,7 +1068,8 @@ Transform:
   m_LocalPosition: {x: -23.598438, y: 11, z: 19.001831}
   m_LocalScale: {x: 2, y: 4, z: 2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 987709891}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1398792925
@@ -1069,6 +1087,33 @@ MonoBehaviour:
   gravityMultiplier: 3
   jumpForce: 5
   moveSpeed: 0.05
+  runSpeed: 9
+  jumpCooldown: 2
+  runDuration: 4
+  runCooldown: 2
+  respawnPosition: {x: -14, y: 2, z: 4}
+  flySpeed: 6
+--- !u!114 &1398792926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398792919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337138b6235e9514f889250ad279445b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::cubodeouro
+  gravityMultiplier: 3
+  jumpForce: 5
+  moveSpeed: 5
+  runSpeed: 9
+  jumpCooldown: 2
+  runDuration: 4
+  runCooldown: 2
+  respawnPosition: {x: -14, y: 2, z: 4}
+  flySpeed: 6
 --- !u!1 &2038342785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,7 +1232,6 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 987709891}
   - {fileID: 203598570}
   - {fileID: 1095223235}
   - {fileID: 350598868}
